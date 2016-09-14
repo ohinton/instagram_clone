@@ -12,12 +12,12 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @image = Image.new
+    @image = current_user.images.new
     render :new
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = current_user.images.new(image_params)
     @image.user = current_user
     if @image.save
       redirect_to images_path
@@ -48,7 +48,7 @@ class ImagesController < ApplicationController
 
 private
   def image_params
-    params.require(:image).permit(:caption, :url)
+    params.require(:image).permit(:caption, :photo)
   end
 
 end
