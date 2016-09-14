@@ -1,7 +1,13 @@
 <% content_for(:navbar) do %>
 <li><a href="/">Home</a></li>
-<li><%= link_to "Sign In", user_session_path %></li>
-<li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+<li>
+<% if user_signed_in? %>
+<%= link_to "Edit Account", edit_user_registration_path %>
+<%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %>
+<% else %>
+<%= link_to "Sign In", user_session_path %>
+<% end %>
+</li>
 <% end %>
 
 <h1>New Image</h1>
