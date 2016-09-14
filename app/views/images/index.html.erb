@@ -10,13 +10,13 @@
 </li>
 <% end %>
 
-<% content_for(:title, "Instagram CLone | Index") %>
+<% content_for(:title, "Instagram Clone | Index") %>
 
 <h1>Images</h1>
 
 <ul>
   <% @images.each do |image| %>
-    <%= image.user.email %>
+    <%= link_to image.user.email, user_session_path(image.user) %>
     <%= image_tag image.url %>
     <li><%= link_to image.caption, image_path(image) %></li>
   <% end %>
