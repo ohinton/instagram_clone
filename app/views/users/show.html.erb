@@ -1,0 +1,28 @@
+<% content_for(:navbar) do %>
+<li><a href="/">Home</a></li>
+<li>
+<% if user_signed_in? %>
+<%= link_to "Edit Account", edit_user_registration_path %>
+<%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %>
+<% else %>
+<%= link_to "Sign In", user_session_path %>
+<% end %>
+</li>
+<% end %>
+
+
+<%= image_tag @image.photo.url(:medium) %>
+<h1><%= @image.caption %></h1>
+
+<p>
+<% if current_user.id == @image.user_id %>
+<%= link_to "Edit", edit_image_path(@image) %>
+<%= link_to "Delete", image_path(@image),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %>
+<% else %>
+  <%= "You are not authorized to Edit or Delete this image"%>
+<% end %>
+</p>
+
+<p><%= link_to "Return to Images", images_path %></p>
