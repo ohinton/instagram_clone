@@ -1,6 +1,11 @@
+<% content_for(:navbar) do %>
+<li><a href="/">Home</a></li>
+<li><%= link_to "Sign In", user_session_path %></li>
+<li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+<% end %>
+
 <h1>New Image</h1>
 
 <%= render "form" %>
 
 <p><%= link_to "Return to Images", images_path %></p>
-<p><%= link_to "Sign Out", destroy_user_session_path %></p>
