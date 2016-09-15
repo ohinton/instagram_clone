@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :images
   has_many :comments
+  has_many :tags
+  has_many :tagged_images, through: :tags, dependent: :destroy, source: :image
 
   validates :email, :presence => true
 
