@@ -11,13 +11,10 @@
 <% end %>
 
 
-<h1><%= @user.email %></h1>
+<h2 class="caption"><%= @user.email %></h2>
 
 <ul>
   <% @images.each do |image| %>
     <%= link_to (image_tag image.photo(:medium)), image_path(image) %>
   <% end %>
 </ul>
-
-
-<p><%= link_to "Return to Images", images_path %></p>
