@@ -1,37 +1,42 @@
-# README
+# 🐱 Katstagram 🐱
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### By Olivia Hinton & Noah Yasskin | 9/15/16
 
-Things you may want to cover:
+## Description
 
-Instagram / Flickr clone
-Make an app that lets users upload their photos to share with the world. Feel free to clone Flickr exactly or make an (Instagram) variation for a specific audience.
+This fun app lets you upload your favorite cat photos and tag your friends in cat photos!
 
-Photo sharing features to include:
+## General Setup Instructions
 
-Users create accounts
-Users can add, edit, delete images (but only their own)
-Users can add, edit, delete tags for all images
-Users can tag each other in images (to start simple, you may choose to display a list of all the users in a drop-down menu when you add a tag)
-Users have a profile page (users#show) with a list of all the photos they are tagged in
-Users can "favorite" images; include image favorites on profile page
-Users can add, edit, delete comments to images
+* Clone this repository
+* Install gems by running command `$ bundle` in the terminal
+* Open another terminal tab and type `postgres` to start PostgreSQL database
+* Return to first terminal tab and run `rails db:create` to create the databases
+* Run `rails db:migrate db:test:prepare` to create tables
+* Launch the Rails server by running command `$ rails s` in the terminal
+* Launch site by visiting localhost:3000 in browser
 
-* Ruby version
+## Project Guidelines
 
-* System dependencies
+Make an app that lets users upload their photos to share with the world. User stories include:
 
-* Configuration
+* Users create accounts
+* Users can add, edit, delete images (but only their own)
+* Users can add, edit, delete tags for all images
+* Users can tag each other in images (to start simple, you may choose to display a list of all the users in a drop-down menu when you add a tag)
+* Users have a profile page (users#show) with a list of all the photos they are tagged in
+* Users can "favorite" images; include image favorites on profile page
+* Users can add, edit, delete comments to images
 
-* Database creation
+## Tech Used
 
-* Database initialization
+* Ruby on Rails (v. 5.0.0.1)
+* Active Record
+* PostgreSQL
+* Bootstrap/SCSS
 
-* How to run the test suite
+### License
 
-* Services (job queues, cache servers, search engines, etc.)
+*This software is licensed under the MIT license.*
 
-* Deployment instructions
-
-* ...
+Copyright (c) 2016 **Olivia Hinton & Noah Yasskin**
