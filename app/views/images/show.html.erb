@@ -4,29 +4,34 @@
   <h2 class="caption">"<%= @image.caption %>"</h2>
 </div>
 
-<% if current_user %>
-  <%= render "tags/new" %>
 
-  <% if @image.tags.any? %>
-    <% @image.tags.each do |tag| %>
-    <%= button_to tag.user.email, image_tag_path(tag.image, tag), :method =>"delete" %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if current_user %>
+      <%= render "tags/new" %>
+    <h4>tagged users</h4>
+    <% if @image.tags.any? %>
+      <% @image.tags.each do |tag| %>
+      <%= link_to tag.user.email, image_tag_path(tag.image, tag), :method =>"delete", :class => "btn btn-default" %>
     <% end %>
   <% end %>
   <% else %>
-  <p>Joint to tag photos</p>
-<% end %>
-
-<p>
-<% if current_user == nil %>
-  <p>Reprimand: You Should Sign Up To Katstagram!</p>
-<% else %>
-  <% if current_user.id == @image.user_id %>
-    <%= link_to "Edit", edit_image_path(@image) %> <br>
-    <%= link_to "Delete", image_path(@image),
-                             :data => {:confirm => "You sure?",
-                                       :method => "delete"} %>
-  <% else %>
-    <%= "You are not authorized to Edit or Delete this image"%>
+  <p>Join to tag photos!</p>
   <% end %>
-<% end %>
-</p>
+  <p>
+  <% if current_user == nil %>
+    <p>Reprimand: You Should Sign Up To Katstagram!</p>
+  <% else %>
+    <% if current_user.id == @image.user_id %>
+      <%= link_to "Edit", edit_image_path(@image) %> <br>
+      <%= link_to "Delete", image_path(@image),
+                               :data => {:confirm => "You sure?",
+                                         :method => "delete"} %>
+    <% else %>
+      <%= "You are not authorized to Edit or Delete this image"%>
+    <% end %>
+  <% end %>
+  </p>
+
+  </div>
+</div>

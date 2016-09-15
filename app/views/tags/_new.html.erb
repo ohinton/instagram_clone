@@ -1,5 +1,5 @@
 <%= form_for [@image, Tag.new] do |f| %>
   <%= f.label :tags %>
   <%= f.collection_select :user_id, User.all, :id, :email, include_blank: true %>
-  <%= f.submit %>
+  <%= f.submit :class => "btn btn-default" %>
 <% end %>

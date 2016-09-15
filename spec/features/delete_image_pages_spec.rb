@@ -11,6 +11,6 @@ describe "the delete an image process" do
     click_button "Log in"
     click_link "In Bread Kitty"
     click_link "Delete"
-    expect(page).to have_content 'Katstagram'
+    expect(page).to have_content 'KATSTAGRAM'
   end
 end
