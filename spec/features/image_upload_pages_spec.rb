@@ -1,13 +1,12 @@
 describe 'upload an image' do
 
   it 'uploads a selected image' do
+    user = FactoryGirl.create(:user)
     visit root_path
     click_link 'Sign In'
-    click_link 'Sign up'
     fill_in 'Email', :with => 'test@email.com'
-    fill_in 'Password', :with => 'password1'
-    fill_in 'Password confirmation', :with => 'password1'
-    click_button 'Sign up'
+    fill_in 'Password', :with => 'password'
+    click_button 'Log in'    
     click_link 'New Image'
     fill_in 'Caption', :with => 'InBread Cat'
     page.attach_file("Photo", 'spec/fixtures/images/inbread-cat.jpg')
