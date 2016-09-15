@@ -18,13 +18,17 @@
 
 
 <p>
-<% if current_user.id == @image.user_id %>
-<%= link_to "Edit", edit_image_path(@image) %>
-<%= link_to "Delete", image_path(@image),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %>
+<% if current_user == nil %>
+  <p>Reprimand: You Should Sign Up To Katstagram!</p>
 <% else %>
-  <%= "You are not authorized to Edit or Delete this image"%>
+  <% if current_user.id == @image.user_id %>
+    <%= link_to "Edit", edit_image_path(@image) %>
+    <%= link_to "Delete", image_path(@image),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"} %>
+  <% else %>
+    <%= "You are not authorized to Edit or Delete this image"%>
+  <% end %>
 <% end %>
 </p>
 
