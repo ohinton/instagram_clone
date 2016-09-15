@@ -2,8 +2,9 @@
 
 <%= form_for @image do |f| %>
   <%= f.label :caption %>
-  <%= f.text_field :caption %>
+  <%= f.text_field :caption, :class => "form-control" %>
+  <br>
   <%= f.label :photo %>
   <%= f.file_field :photo %>
-  <%= f.submit  %>
+  <%= f.submit :class => "btn btn-default"  %>
 <% end %>

@@ -1,0 +1,24 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 6em;
+  text-align: center;
+}
+
+.btn {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.caption {
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.show-cat {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}

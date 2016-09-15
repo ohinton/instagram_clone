@@ -1,19 +1,8 @@
-<% content_for(:navbar) do %>
-<li><a href="/">Katstagram Home</a></li>
-<li>
-<% if user_signed_in? %>
-<%= link_to "Edit Account", edit_user_registration_path %> <br>
-<%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %>
-<% else %>
-<%= link_to "Sign In", user_session_path %>
-<% end %>
-</li>
-<% end %>
 
-<h1>Katstagram</h1>
-
-<%= image_tag @image.photo.url(:medium) %>
-<h1><%= @image.caption %></h1>
+<div class="show-cat">
+  <%= image_tag @image.photo(:medium) %>
+  <h2 class="caption">"<%= @image.caption %>"</h2>
+</div>
 
 <% if current_user %>
   <%= render "tags/new" %>
@@ -32,7 +21,7 @@
   <p>Reprimand: You Should Sign Up To Katstagram!</p>
 <% else %>
   <% if current_user.id == @image.user_id %>
-    <%= link_to "Edit", edit_image_path(@image) %>
+    <%= link_to "Edit", edit_image_path(@image) %> <br>
     <%= link_to "Delete", image_path(@image),
                              :data => {:confirm => "You sure?",
                                        :method => "delete"} %>
@@ -41,5 +30,3 @@
   <% end %>
 <% end %>
 </p>
-
-<p><%= link_to "Return to Images", images_path %></p>
