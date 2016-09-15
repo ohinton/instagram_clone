@@ -16,8 +16,10 @@
 
 <ul>
   <% @images.each do |image| %>
+    <%= link_to image.user.email, user_path(image.user) %> <br>
     <%= image_tag image.photo.url(:thumb) %>
     <li><%= link_to image.caption, image_path(image) %></li>
+    <br>
   <% end %>
 </ul>
 

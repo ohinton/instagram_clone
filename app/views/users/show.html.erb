@@ -11,18 +11,13 @@
 <% end %>
 
 
-<%= image_tag @image.photo.url(:medium) %>
-<h1><%= @image.caption %></h1>
+<h1><%= @user.email %></h1>
 
-<p>
-<% if current_user.id == @image.user_id %>
-<%= link_to "Edit", edit_image_path(@image) %>
-<%= link_to "Delete", image_path(@image),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %>
-<% else %>
-  <%= "You are not authorized to Edit or Delete this image"%>
-<% end %>
-</p>
+<ul>
+  <% @images.each do |image| %>
+    <%= image_tag image.photo(:medium) %>
+  <% end %>
+</ul>
+
 
 <p><%= link_to "Return to Images", images_path %></p>

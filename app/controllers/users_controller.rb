@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @image = current_user.image.find(params[:id])
+    @user = User.find(params[:id])
+    @images = @user.images
     render :show
   end
 
