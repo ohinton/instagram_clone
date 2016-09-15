@@ -8,6 +8,7 @@ end
 
 FactoryGirl.define do
   factory(:image) do
-    caption('In Bread Kitty')
+    caption 'In Bread Kitty'
+    photo_file_name 'inbread-cat.jpg'
   end
 end
